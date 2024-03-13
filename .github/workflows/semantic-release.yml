@@ -1,0 +1,12 @@
+name: Public ECR
+
+on:
+  push:
+
+jobs:
+  build:
+    uses: crispybaconsrl/devops-team__reusable-workflows/.github/workflows/build-public-image-on-ecr-with-vault.yml@master
+    with:
+      PROJECT_NAME: semantic-release
+    secrets:
+      vault_token: ${{ secrets.VAULT_TOKEN }}
